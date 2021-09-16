@@ -107,8 +107,10 @@ public enum SignInWithAppleError {
                 errorCode = "authorization-error/notHandled"
             case .failed:
                 errorCode = "authorization-error/failed"
+            #if compiler(>=5.5)
             case .notInteractive:
                 errorCode = "authorization-error/notInteractive"
+            #endif
             @unknown default:
                 print("[SignInWithApplePlugin]: Unknown authorization error code: \(code)");
             }
